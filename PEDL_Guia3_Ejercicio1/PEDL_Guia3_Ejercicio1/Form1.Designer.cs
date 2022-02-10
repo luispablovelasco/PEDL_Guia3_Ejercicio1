@@ -28,26 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtnombre = new System.Windows.Forms.TextBox();
+            this.txtsalario = new System.Windows.Forms.TextBox();
+            this.dtpfecha = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnregistrar = new System.Windows.Forms.Button();
             this.btneliminar = new System.Windows.Forms.Button();
             this.btnsalir = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.dgvtabla = new System.Windows.Forms.DataGridView();
-            this.dtpfecha = new System.Windows.Forms.DateTimePicker();
-            this.txtsalario = new System.Windows.Forms.TextBox();
-            this.txtnombre = new System.Windows.Forms.TextBox();
-            this.txtcarnet = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.mtcarnet = new System.Windows.Forms.MaskedTextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvtabla)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtcarnet);
+            this.groupBox1.Controls.Add(this.mtcarnet);
             this.groupBox1.Controls.Add(this.txtnombre);
             this.groupBox1.Controls.Add(this.txtsalario);
             this.groupBox1.Controls.Add(this.dtpfecha);
@@ -61,6 +64,65 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos:";
+            // 
+            // txtnombre
+            // 
+            this.txtnombre.Location = new System.Drawing.Point(81, 63);
+            this.txtnombre.Name = "txtnombre";
+            this.txtnombre.Size = new System.Drawing.Size(301, 20);
+            this.txtnombre.TabIndex = 6;
+            this.txtnombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtnombre_KeyPress);
+            // 
+            // txtsalario
+            // 
+            this.txtsalario.Location = new System.Drawing.Point(81, 99);
+            this.txtsalario.Name = "txtsalario";
+            this.txtsalario.Size = new System.Drawing.Size(301, 20);
+            this.txtsalario.TabIndex = 7;
+            this.txtsalario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtsalario_KeyPress);
+            // 
+            // dtpfecha
+            // 
+            this.dtpfecha.Location = new System.Drawing.Point(81, 131);
+            this.dtpfecha.Name = "dtpfecha";
+            this.dtpfecha.Size = new System.Drawing.Size(200, 20);
+            this.dtpfecha.TabIndex = 8;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(34, 131);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(40, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Fecha:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(33, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.TabIndex = 4;
+            this.label1.Text = "Carnet:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(32, 102);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(42, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Salario:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(33, 66);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Nombre:";
             // 
             // btnregistrar
             // 
@@ -92,42 +154,6 @@
             this.btnsalir.UseVisualStyleBackColor = true;
             this.btnsalir.Click += new System.EventHandler(this.btnsalir_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Carnet:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 66);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 13);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Nombre:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 102);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(42, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Salario:";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 131);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(40, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Fecha:";
-            // 
             // dgvtabla
             // 
             this.dgvtabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -136,33 +162,17 @@
             this.dgvtabla.Size = new System.Drawing.Size(638, 150);
             this.dgvtabla.TabIndex = 4;
             // 
-            // dtpfecha
+            // errorProvider1
             // 
-            this.dtpfecha.Location = new System.Drawing.Point(81, 131);
-            this.dtpfecha.Name = "dtpfecha";
-            this.dtpfecha.Size = new System.Drawing.Size(200, 20);
-            this.dtpfecha.TabIndex = 8;
+            this.errorProvider1.ContainerControl = this;
             // 
-            // txtsalario
+            // mtcarnet
             // 
-            this.txtsalario.Location = new System.Drawing.Point(81, 99);
-            this.txtsalario.Name = "txtsalario";
-            this.txtsalario.Size = new System.Drawing.Size(301, 20);
-            this.txtsalario.TabIndex = 9;
-            // 
-            // txtnombre
-            // 
-            this.txtnombre.Location = new System.Drawing.Point(81, 63);
-            this.txtnombre.Name = "txtnombre";
-            this.txtnombre.Size = new System.Drawing.Size(301, 20);
-            this.txtnombre.TabIndex = 10;
-            // 
-            // txtcarnet
-            // 
-            this.txtcarnet.Location = new System.Drawing.Point(81, 28);
-            this.txtcarnet.Name = "txtcarnet";
-            this.txtcarnet.Size = new System.Drawing.Size(301, 20);
-            this.txtcarnet.TabIndex = 11;
+            this.mtcarnet.Location = new System.Drawing.Point(81, 28);
+            this.mtcarnet.Mask = "LL000000";
+            this.mtcarnet.Name = "mtcarnet";
+            this.mtcarnet.Size = new System.Drawing.Size(301, 20);
+            this.mtcarnet.TabIndex = 5;
             // 
             // Form1
             // 
@@ -179,6 +189,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvtabla)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -186,7 +197,6 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtcarnet;
         private System.Windows.Forms.TextBox txtnombre;
         private System.Windows.Forms.TextBox txtsalario;
         private System.Windows.Forms.DateTimePicker dtpfecha;
@@ -198,6 +208,8 @@
         private System.Windows.Forms.Button btneliminar;
         private System.Windows.Forms.Button btnsalir;
         private System.Windows.Forms.DataGridView dgvtabla;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.MaskedTextBox mtcarnet;
     }
 }
 
